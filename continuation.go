@@ -11,12 +11,13 @@ import "net/url"
 * Right now the only available Continuation type is Pathlike, but you could implement your own.
 *
 * The bare usage is to create a Pathlike in your own code and satisfy the NextFunction() in the
-* Continuation interface; it should return a func() you specified in your path.
+* Continuation interface for your type. The Path is your function notation, your implementation of
+* NextFunction is the continuation expansion.
 *
  */
 
 type Continuation interface {
-	NextFunction() func()
+	NextFunction()
 	Parse()
 }
 
